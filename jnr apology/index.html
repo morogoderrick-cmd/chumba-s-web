@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Chumbaa 💖🐻</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        .letter-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .letter-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #ff6b6b;
+            padding-bottom: 20px;
+        }
+
+        .chumbaa-top-emojis {
+            font-size: 2.5rem;
+            letter-spacing: 10px;
+            margin-bottom: 10px;
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes sparkle {
+            0% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0.7; transform: scale(1); }
+        }
+
+        .letter-header h1 {
+            color: #d63031;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-family: 'Georgia', serif;
+        }
+
+        .heart-decoration {
+            font-size: 40px;
+            animation: beat 1.2s ease-in-out infinite;
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .greeting {
+            font-size: 1.3em;
+            color: #2d3436;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .message {
+            line-height: 1.8;
+            color: #636e72;
+            margin-bottom: 30px;
+        }
+
+        .message p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .signature {
+            text-align: right;
+            font-style: italic;
+            border-top: 2px dashed #ff7675;
+            padding-top: 20px;
+        }
+
+        .name {
+            font-size: 1.3em;
+            color: #d63031;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .interactive-section {
+            text-align: center;
+            margin: 30px 0 10px;
+            padding: 25px;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 20px;
+        }
+
+        .form-option-badge {
+            background: #ffb8b8;
+            color: #d63031;
+            padding: 8px 15px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .question {
+            font-size: 1.6em;
+            color: #2d3436;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .decision-group {
+            text-align: left;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 15px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+            padding: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .radio-label:hover {
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 8px;
+        }
+
+        .radio-label input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            cursor: pointer;
+            accent-color: #ff6b6b;
+        }
+
+        .radio-text {
+            font-size: 1.1em;
+            color: #2d3436;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2d3436;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ffb8b8;
+            border-radius: 15px;
+            font-size: 1em;
+            background: white;
+            min-height: 120px;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: #ff6b6b;
+        }
+
+        /* NEW: Message prompt chips styling */
+        .message-prompts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+
+        .prompt-chip {
+            background: white;
+            border: 2px solid #ffb8b8;
+            border-radius: 30px;
+            padding: 8px 15px;
+            font-size: 0.9em;
+            color: #d63031;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .prompt-chip:hover {
+            background: #ff6b6b;
+            color: white;
+            border-color: #ff6b6b;
+            transform: scale(1.05);
+        }
+
+        .prompt-chip:active {
+            transform: scale(0.95);
+        }
+
+        .submit-btn {
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            max-width: 300px;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+
+        #responseMessage {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            min-height: 60px;
+            transition: all 0.3s ease;
+        }
+
+        .success { background: rgba(0, 184, 148, 0.2); color: #00b894; border: 2px solid #00b894; }
+        .info { background: rgba(9, 132, 227, 0.2); color: #0984e3; border: 2px solid #0984e3; }
+
+        .example-note {
+            font-size: 0.95em;
+            color: #636e72;
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            border-left: 3px solid #ff6b6b;
+            text-align: left;
+        }
+
+        .example-note strong {
+            color: #d63031;
+        }
+
+        @media (max-width: 600px) {
+            .letter-card { padding: 20px; }
+            .letter-header h1 { font-size: 2em; }
+            .chumbaa-top-emojis { font-size: 2rem; }
+            .prompt-chip { font-size: 0.8em; padding: 6px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="letter-card">
+            <div class="letter-header">
+                <div class="chumbaa-top-emojis">💖🐻💌✨</div>
+                <h1>For My Chumbaa 💖🐻</h1>
+                <div class="heart-decoration">❤️</div>
+            </div>
+            
+            <div class="greeting">My Dearest Chumbaa 💕,</div>
+            
+            <div class="message">
+                <p>I'm writing this with a heart full of love and regret. I know I've made mistakes, and I deeply apologize for any pain I've caused you.</p>
+                <p>You mean the world to me. Every moment we've shared, every laugh, every memory — they're all precious to me.</p>
+                <p>I'm not perfect, but I'm willing to learn and grow for you, for us.</p>
+                <p>I understand if you need time, but I hope you can find it in your heart to give us another chance.</p>
+            </div>
+            
+            <div class="signature">
+                <div>With all my love,</div>
+                <div class="name">[Your Name]</div>
+            </div>
+            
+            <!-- ===== THE FORM WITH MESSAGE PROMPTS ===== -->
+            <div class="interactive-section">
+                <span class="form-option-badge">💌 For Chumbaa only 💌</span>
+                <div class="question">Will you give me a second chance? 💫</div>
+                
+                <form name="second-chance" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="second-chance" />
+                    
+                    <div class="decision-group">
+                        <p style="font-weight: bold; margin-bottom: 15px;">💞 Choose one:</p>
+                        
+                        <label class="radio-label">
+                            <input type="radio" name="response" value="second-chance" required> 
+                            <span class="radio-text">Yes, I forgive you ❤️</span>
+                        </label>
+                        
+                        <label class="radio-label">
+                            <input type="radio" name="response" value="need-time"> 
+                            <span class="radio-text">I need more time to think ⏳</span>
+                        </label>
+                        
+                        <label class="radio-label">
+                            <input type="radio" name="response" value="just-a-message"> 
+                            <span class="radio-text"><strong>📝 FORM OPTION: I just want to send a message</strong></span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">💬 Your message for me:</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Write anything you want to say to me..." class="form-textarea"></textarea>
+                        
+                        <!-- ===== MESSAGE PROMPTS - Click to add text ===== -->
+                        <div class="example-note">
+                            <strong>💡 Click any suggestion below to add it to your message:</strong>
+                        </div>
+                        
+                        <div class="message-prompts">
+                            <span class="prompt-chip" onclick="addToMessage('I forgive you, but I need time... ❤️')">💕 I forgive you, but need time</span>
+                            <span class="prompt-chip" onclick="addToMessage('I love you and want to work things out 🥺')">🥺 I love you, let's work it out</span>
+                            <span class="prompt-chip" onclick="addToMessage('I\'m hurt but I still care about you')">😔 I'm hurt but I still care</span>
+                            <span class="prompt-chip" onclick="addToMessage('Can we talk tomorrow? Call me 📞')">📞 Can we talk tomorrow?</span>
+                            <span class="prompt-chip" onclick="addToMessage('I need space right now...')">🌙 I need space right now</span>
+                            <span class="prompt-chip" onclick="addToMessage('I miss you so much 💔')">💔 I miss you so much</span>
+                            <span class="prompt-chip" onclick="addToMessage('You hurt me but I want to forgive you')">🫂 You hurt me but I want to forgive</span>
+                            <span class="prompt-chip" onclick="addToMessage('I\'m not ready to talk yet')">🤐 Not ready to talk yet</span>
+                            <span class="prompt-chip" onclick="addToMessage('Let\'s start fresh. I love you 🌅')">🌅 Let's start fresh</span>
+                            <span class="prompt-chip" onclick="addToMessage('Write whatever is in your heart... 💖')">💖 Write from your heart</span>
+                        </div>
+                        
+                        <div class="example-note">
+                            <strong>✨ Or write your own message below:</strong> Tell me how you really feel - angry, sad, hopeful, anything. I'll read every word.
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send to Me 💌</button>
+                </form>
+                
+                <div id="responseMessage"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to add prompt text to message box
+        function addToMessage(text) {
+            const messageBox = document.getElementById('message');
+            if (messageBox) {
+                // If empty, just add the text
+                if (messageBox.value.trim() === '') {
+                    messageBox.value = text;
+                } else {
+                    // If not empty, add new text on a new line
+                    messageBox.value += '\n' + text;
+                }
+                // Focus the textarea
+                messageBox.focus();
+            }
+        }
+
+        // Form submission handling
+        const form = document.querySelector('form');
+        const responseDiv = document.getElementById('responseMessage');
+        
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(form);
+                const response = formData.get('response');
+                const message = formData.get('message') || '(No message written)';
+                
+                // Show immediate feedback based on choice
+                if (response === 'second-chance') {
+                    responseDiv.innerHTML = '❤️ THANK YOU, CHUMBAA! Thank you for forgiving me. I promise to never disappoint you again! I\'ll read your message right away. 🐻💖';
+                    responseDiv.className = 'success';
+                } else if (response === 'need-time') {
+                    responseDiv.innerHTML = '🕊️ I understand, Chumbaa. Take all the time you need. I\'ll wait for you and work on being better. Thank you for being honest. 💕🐻';
+                    responseDiv.className = 'info';
+                } else if (response === 'just-a-message') {
+                    responseDiv.innerHTML = '📬 Thank you for your message! I\'ll treasure every word you wrote. You mean everything to me. 💌💖🐻';
+                    responseDiv.className = 'info';
+                }
+                
+                // Submit to Netlify (so it appears in your dashboard)
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                })
+                .then(() => {
+                    console.log('✅ Form submitted to Netlify successfully!');
+                    form.reset();
+                })
+                .catch(error => {
+                    console.log('⚠️ Error but message still shown:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
